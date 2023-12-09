@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :user_signed_in, only: %i[ new create ]
   before_action :set_event, only: %i[ show edit update destroy ]
-  before_action :user_is_owner, only: %i[ edit update destroy ]
+  before_action :user_is_creator, only: %i[ edit update destroy ]
 
   # GET /events
   def index

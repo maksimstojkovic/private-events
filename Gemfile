@@ -66,5 +66,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# User authentication and authorisation
 gem "devise", "~>4.9.3"
 gem "responders", "~>3.1.1"

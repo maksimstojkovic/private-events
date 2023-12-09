@@ -11,6 +11,22 @@
   </head>
 
   <body>
+    <nav>
+      <div class="left">
+        <h2>Private Events</h2>
+      </div>
+      <div class="right">
+        <ul>
+          <% if user_signed_in? %>
+            <li><%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+          <% else %>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>

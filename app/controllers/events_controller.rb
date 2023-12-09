@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
+  before_action :user_signed_in, only: %i[ new create ]
   before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :user_is_owner, only: %i[ edit update destroy ]
 
   # GET /events
   def index
@@ -47,6 +49,20 @@ class EventsController < ApplicationController
   end
 
   private
+    # Users must be signed in to create events
+    def user_signed_in
+      if !user_signed_in?
+        redirect_to new_user_session_path
+      end
+    end
+
+    # Users can only modify their own events
+    def user_is_creator
+      if @event.creator != current_user
+        redirect_to new_user_session_path
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])

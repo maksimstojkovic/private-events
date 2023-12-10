@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   
   devise_for :users
   get "users/:id", to: "users#show", as: "profile"
-
+  
   resources :events
+  resources :event_attendees
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

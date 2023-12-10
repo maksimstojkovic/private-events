@@ -11,7 +11,7 @@ class EventAttendeesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_event_attendee_url
+    get new_attend_url
     assert_response :success
   end
 
@@ -29,7 +29,7 @@ class EventAttendeesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    get edit_event_attendee_url(@event_attendee)
+    get edit_attend_url(@event_attendee)
     assert_response :success
   end
 

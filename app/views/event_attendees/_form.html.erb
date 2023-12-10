@@ -1,4 +1,4 @@
-<%= form_with(model: event_attendee) do |form| %>
+<%= form_with(model: event_attendee, url: attend_index_path(@event)) do |form| %>
   <% if event_attendee.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(event_attendee.errors.count, "error") %> prohibited this event_attendee from being saved:</h2>
@@ -10,11 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :event_id, style: "display: block" %>
-    <%= form.text_field :event_id %>
-  </div>
 
   <div>
     <%= form.label :attendee_id, style: "display: block" %>

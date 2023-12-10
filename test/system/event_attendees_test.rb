@@ -23,7 +23,7 @@ class EventAttendeesTest < ApplicationSystemTestCase
   end
 
   test "should update Event attendee" do
-    visit event_attendee_url(@event_attendee)
+    visit attend_url(@event_attendee)
     click_on "Edit this event attendee", match: :first
 
     fill_in "Attendee", with: @event_attendee.attendee_id
@@ -35,7 +35,7 @@ class EventAttendeesTest < ApplicationSystemTestCase
   end
 
   test "should destroy Event attendee" do
-    visit event_attendee_url(@event_attendee)
+    visit attendee_url(@event_attendee)
     click_on "Destroy this event attendee", match: :first
 
     assert_text "Event attendee was successfully destroyed"

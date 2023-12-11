@@ -12,12 +12,12 @@
 
 <h2>Events Attended</h2>
 
-<% @user.attended_events.where(date: ...(DateTime.now)).each do |event| %>
+<% @user.attended_events.past_events.each do |event| %>
   <%= render event %>
 <% end %>
 
 <h2>Future Event to be Attended</h2>
 
-<% @user.attended_events.where(date: (DateTime.now)...).each do |event| %>
+<% @user.attended_events.upcoming_events.each do |event| %>
   <%= render event %>
 <% end %>
